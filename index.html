@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Linky helps B2B founders turn LinkedIn overthinking into personalized messages that feel truly human. Join the waitlist and lock 50% off for life.">
+    <title>Linky — Human-like LinkedIn outreach</title>
+    <link rel="icon" href="../linky_wizard_icon_no_background.png" type="image/png">
+    <link rel="apple-touch-icon" href="../linky_wizard_icon_no_background.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="page">
+        <div class="shell">
+            <div class="shell__inner">
+                <nav class="navbar" aria-label="Primary">
+                    <a class="navbar__brand" href="#" onclick="event.preventDefault()" aria-label="Linky brand">
+                        <img class="wizard-logo navbar__logo" src="../linky_wizard_icon.png" alt="Linky wizard logo" width="36" height="36">
+                        <span class="navbar__brand-text">Linky</span>
+                    </a>
+                    <div class="navbar__actions">
+                        <a class="navbar__link" href="#footer-faq">FAQ</a>
+                        <a class="navbar__link" href="#footer-contact">Contact</a>
+                        <a class="navbar__link" href="#footer-privacy">Privacy</a>
+                        <a class="btn-primary btn-primary--gold js-focus-waitlist" href="#waitlist-form">Join the waitlist</a>
+                    </div>
+                </nav>
+
+                <section class="hero">
+                    <p class="hero__badge">Join 100+ founders in the waitlist</p>
+                    <h1>Convert LinkedIn overthinking into personalized messages, with a click.</h1>
+                    <p class="hero__subhead">The only minimalist extension that uses Claude's soul to generate perfectly personalized messages from a single comment, so people forget you're using AI. Zero ban risk, less chaos.</p>
+
+                    <form id="waitlist-form" class="waitlist-form" novalidate>
+                        <label class="sr-only" for="email">Email</label>
+                        <div class="waitlist-form__row">
+                            <input class="waitlist-input" type="email" id="email" name="email" autocomplete="email" placeholder="Your email" required>
+                            <button type="submit" class="btn-primary btn-primary--gold">Join the waitlist</button>
+                        </div>
+                    </form>
+                    <div id="form-success" class="form-success" hidden role="status" aria-live="polite">
+                        <p class="form-success__title">You are on the waitlist.</p>
+                        <p class="form-success__text">We will notify you before launch.</p>
+                    </div>
+
+                    <div class="hero-separator" aria-hidden="true"></div>
+                    <p class="hero-bridge-label">RESULTS THAT MATTER</p>
+                    <aside class="bar-proof bar-proof--hero" aria-label="Positive reply rate comparison chart">
+                        <h2>Positive Reply Rate (%)</h2>
+                        <p class="bar-proof__lift">+250% Conversion Lift</p>
+                        <div class="bar-proof__chart">
+                            <div class="bar-proof__item">
+                                <p>Standard Outreach</p>
+                                <div class="bar-proof__rail"><span class="bar-proof__bar bar-proof__bar--low"></span></div>
+                                <small>12% - Generic Templates</small>
+                            </div>
+                            <div class="bar-proof__item">
+                                <p>With Linky</p>
+                                <div class="bar-proof__rail"><span class="bar-proof__bar bar-proof__bar--high"></span></div>
+                                <small>42% - Comment-Context Method</small>
+                            </div>
+                        </div>
+                        <p class="bar-proof__caption">*Data based on a 14-day internal test with 100 Beta-Founders, comparing standard profile-based messages vs Linky's context-aware generation.</p>
+                    </aside>
+                </section>
+
+                <section class="differentiator">
+                    <h2>Why GPT can't compete: Linky uses Claude Sonnet.</h2>
+                    <div class="compare-box">
+                        <article class="card card--muted">
+                            <h3>GPT-style / LinkedIn AI</h3>
+                            <p>Robotic, repetitive, and clearly AI-generated.</p>
+                            <p class="card__status card__status--danger">Status: Likely Ignored</p>
+                            <p class="card__example-label">Example (LinkedIn AI)</p>
+                            <blockquote class="card__example">
+                                <p>Hi Jonas,</p>
+                                <p>I was <u>impressed by your work</u> in asset management and financial process optimization at BTV Bank. Your focus on turning financial data into actionable insights resonates with my skills in software development and analytical thinking.</p>
+                                <p>I am eager to explore potential opportunities at BTV that <u>align with my background</u>. <u>Are there any openings</u> that you think might suit my profile?</p>
+                                <p>Thank you for your time, and I look forward to your response.</p>
+                            </blockquote>
+                            <p class="card__focus">Focus: Self-promotion and static profile data.</p>
+                        </article>
+                        <article class="card card--accent">
+                            <h3>Linky's Claude</h3>
+                            <p>Empathetic, professional, and context-aware. Truly human-like.</p>
+                            <p class="card__status card__status--success">Status: High Reply Rate</p>
+                            <p class="card__example-label">Example (Linky)</p>
+                            <blockquote class="card__example">
+                                <p>Hey Jonas, <u>your take on business value</u> over tooling resonated — that gap shows up a lot in data security too, where teams <u>obsess over stack choices</u> but miss the actual exposure underneath. Curious: in your analytics work, do you find that framing matters when you're <u>pitching risk-related findings</u> to stakeholders?</p>
+                            </blockquote>
+                            <p class="card__focus">Focus: Real-time context and mutual interest.</p>
+                        </article>
+                    </div>
+                    <p class="differentiator__body">Claude "reads" the context of comments to generate messages that feel authentic, not automated. While GPT and LinkedIn Premium AI rely on generic profile-based drafts, Linky turns real-time conversations into genuine connections.</p>
+                </section>
+
+                <section class="workflow">
+                    <h2>Your New 3-Step Social Selling Routine</h2>
+                    <div class="workflow__grid">
+                        <article class="step-card">
+                            <p class="step-card__number">1</p>
+                            <h3>LISTEN (Save the Comment)</h3>
+                            <p>Find an insightful comment from a lead and save it with one click. Solve the "I don't know how to approach" problem instantly.</p>
+                        </article>
+                        <article class="step-card">
+                            <p class="step-card__number">2</p>
+                            <h3>ANALYZE (The Magic Happens)</h3>
+                            <p>Linky uses Claude Sonnet to analyze the context and tone. No more generic templates.</p>
+                        </article>
+                        <article class="step-card">
+                            <p class="step-card__number">3</p>
+                            <h3>CONVERT (Message Ready)</h3>
+                            <p>Your perfectly crafted message is ready to send. 1 click, authentic conversations, real results.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="features-section" aria-label="Linky features">
+                    <h2>Minimalist Power. Maximum Control.</h2>
+                    <p class="features-section__subtitle">Everything you need to convert LinkedIn leads, without the complexity of a bloated CRM.</p>
+                    <div class="features-grid">
+                        <article class="feature-card">
+                            <div class="feature-card__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <h3>One-Click Lead Capture</h3>
+                            <p>Found a high-value comment or profile? Save it instantly with one click. Linky bookmarks the person and the specific conversation context, so you never have to "remember" why you liked a lead.</p>
+                        </article>
+
+                        <article class="feature-card">
+                            <div class="feature-card__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 6a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                </svg>
+                            </div>
+                            <h3>Context-Aware Lead Library</h3>
+                            <p>Stop losing prospects in your chaotic feed. Linky organizes your saved leads in a clean, searchable library. It's your personal database of people you actually want to talk to.</p>
+                        </article>
+
+                        <article class="feature-card">
+                            <div class="feature-card__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"></path>
+                                    <path d="M18 14l.9 2.1L21 17l-2.1.9L18 20l-.9-2.1L15 17l2.1-.9z"></path>
+                                </svg>
+                            </div>
+                            <h3>Specialized Outreach Modes</h3>
+                            <p>Choose the best angle for every situation:</p>
+                            <ul class="feature-card__list">
+                                <li>Pain-Point Solver: Target their specific business struggles.</li>
+                                <li>Founder-to-Founder: High-status, direct peer networking.</li>
+                                <li>Comment-to-Message: The ultimate icebreaker based on their real words.</li>
+                            </ul>
+                        </article>
+
+                        <article class="feature-card">
+                            <div class="feature-card__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M19.4 15a1.7 1.7 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-.4-1.1 1.7 1.7 0 0 0-1-.6 1.7 1.7 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H2.8a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.1-.4 1.7 1.7 0 0 0 .6-1 1.7 1.7 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V2.8a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 .4 1.1 1.7 1.7 0 0 0 1 .6 1.7 1.7 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.26.3.46.65.6 1 .09.35.13.72.13 1.1s-.04.75-.13 1.1c-.14.35-.34.7-.6 1z"></path>
+                                </svg>
+                            </div>
+                            <h3>Your Voice, Your Rules</h3>
+                            <p>Tired of long AI rambles? Tell Claude exactly how to behave. Set custom rules like "Keep it under 5 lines" or "Never use corporate jargon". Claude reads your instructions before writing a single word.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="identity-section" aria-label="Identity-aware generation">
+                    <h2 class="identity-section__title">Identity-Aware Generation</h2>
+                    <div class="identity-feature">
+                        <article class="feature-card identity-feature__card">
+                            <p>Never send a generic message again. Feed Linky your value proposition, and Claude will weave your expertise into every conversation. It's your voice, amplified by intelligence.</p>
+                        </article>
+                        <div class="identity-feature__media" aria-label="Identity feature image">
+                            <img class="identity-feature__image" src="../who_am_i.png" alt="Who I am visual">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="video-placeholder" aria-label="Tool demo video">
+                    <h2>See Linky in Action</h2>
+                    <div class="video-placeholder__box">
+                        <video class="video-placeholder__video" controls preload="metadata">
+                            <source src="../linky (1).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </section>
+
+                <section class="trust">
+                    <div class="safety-card">
+                        <p class="safety-card__badge">Zero Ban Risk</p>
+                        <p>Linky helps you write, it doesn't send messages for you. It's a "human-in-the-loop" tool, meaning you are always in control and 100% compliant with LinkedIn policies.</p>
+                    </div>
+                    <div class="qualification">
+                        <h2>Is Linky for you?</h2>
+                        <p><strong>YES:</strong> B2B Founders, Solo-founders, and anyone seeking authentic efficiency.</p>
+                        <p><strong>NO:</strong> Spam agencies or those looking for mass-automation bots.</p>
+                    </div>
+                </section>
+
+                <section class="testimonials">
+                    <h2>Social Proof from Early Users</h2>
+                    <div class="testimonials__grid">
+                        <article class="quote-card">
+                            <p>"I’ve tried them all, but they all sound like bots. Linky feels like it actuaylly listens before writing."</p>
+                            <span>- [B2B Startup Founder]</span>
+                        </article>
+                        <article class="quote-card">
+                            <p>"I doubled my reply rate in a week thanks to contextual messages based on comments."</p>
+                            <span>- [SaaS Sales Lead]</span>
+                        </article>
+                        <article class="quote-card">
+                            <p>"I save 2 hours a day. The Comment-to-Message framework is a total game-changer."</p>
+                            <span>- [Independent Consultant]</span>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="pricing">
+                    <h2>Pricing for Early Builders</h2>
+                    <p class="pricing__offer"><span>$14.99</span> $7.49/mo for waitlist users.</p>
+                    <p class="pricing__fomo">Lock in this 50% discount for life now. It will never be this low again.</p>
+                    <a class="btn-primary btn-primary--gold js-focus-waitlist" href="#waitlist-form">Join the waitlist</a>
+                </section>
+
+                <section class="beta-program">
+                    <h2>Build the future of Linky with us.</h2>
+                    <p>We’re just getting started. Join the waitlist to directly shape Linky’s roadmap by proposing and voting on new features. We reward our most active contributors with exclusive lifetime discounts and a permanent spot in the official "App Credits"—where your impact on our growth will be recognized forever.</p>
+                </section>
+
+                <footer class="site-footer">
+                    <section id="footer-faq" class="footer-anchor-section" aria-label="FAQ section">
+                        <h3>FAQ</h3>
+                        <div class="faq-accordion">
+                            <details class="faq-item">
+                                <summary>1. How is Linky different from LinkedIn Premium AI or GPT?</summary>
+                                <p>LinkedIn's AI and standard GPT-based tools rely on static profile data, leading to generic "I see you're a founder" messages. Linky uses Claude Sonnet to analyze the specific context of a comment. It understands the nuances of a conversation, making your outreach feel like a real human-to-human follow-up, not a template.</p>
+                            </details>
+                            <details class="faq-item">
+                                <summary>2. Is there a risk of my LinkedIn account being banned?</summary>
+                                <p>No. Linky is a "Human-in-the-loop" tool. It doesn't automate the sending process (which is what LinkedIn's bots detect). It simply assists you in writing the draft. You are always the one clicking "Send," keeping your account 100% compliant with LinkedIn's Terms of Service.</p>
+                            </details>
+                            <details class="faq-item">
+                                <summary>3. Can I customize how the AI writes?</summary>
+                                <p>Absolutely. Unlike other "black-box" AI tools, Linky gives you a Custom Rules box. You can tell it to "keep it under 3 lines," "avoid corporate jargon," or "always end with a specific question." Claude reads your rules before generating every single word.</p>
+                            </details>
+                            <details class="faq-item">
+                                <summary>4. Does it work with Sales Navigator?</summary>
+                                <p>Yes. Linky is designed to work where you work. Whether you are browsing your standard feed or doing deep prospecting on Sales Navigator, the "Save to Library" and "Generate" features will be right there with you.</p>
+                            </details>
+                            <details class="faq-item">
+                                <summary>5. What happens after I join the waitlist?</summary>
+                                <p>You'll be the first to know when we go live. By joining now, you lock in a 50% Lifetime Discount that will never be available again after the official launch. You'll also get access to our Beta-Builder program to vote on upcoming features.</p>
+                            </details>
+                            <details class="faq-item">
+                                <summary>6. When will Linky officially launch?</summary>
+                                <p>Linky is currently in private beta. To ensure the highest quality of generation and support for every early adopter, we've set a community goal of 500 users on the waitlist. As soon as we hit this milestone, the first wave of invites will be sent out immediately. Help us get there faster by sharing Linky with your founder network.</p>
+                            </details>
+                        </div>
+                    </section>
+                    <section id="footer-contact" class="footer-anchor-section" aria-label="Contact section">
+                        <h3>Contact</h3>
+                    </section>
+                    <section id="footer-privacy" class="footer-anchor-section" aria-label="Privacy section">
+                        <h3>Privacy</h3>
+                    </section>
+                    <p>© <span id="footer-year">2026</span> Linky. All rights reserved.</p>
+                </footer>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        window.SUPABASE_URL = "https://rfyutermluskpkwwszxm.supabase.co";
+        window.SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJmeXV0ZXJtbHVza3Brd3dzenhtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1OTkwNDIsImV4cCI6MjA4NzE3NTA0Mn0.2qA3jI1qRCJ7ooByRdR7wtf3MjP2dKmsz0pWv1RGm6w";
+    </script>
+    <script src="main.js" defer></script>
+</body>
+</html>

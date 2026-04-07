@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Quality metrics placeholder</title>
+  <desc id="desc">Simple bar chart silhouette for layout; replace with your graphic.</desc>
+  <rect width="480" height="360" rx="12" fill="#f8fafc"/>
+  <rect x="24" y="24" width="432" height="40" rx="8" fill="#e2e8f0"/>
+  <text x="240" y="50" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Quality preview</text>
+  <g transform="translate(48 100)">
+    <rect x="0" y="120" width="48" height="80" rx="6" fill="url(#g1)"/>
+    <rect x="72" y="80" width="48" height="120" rx="6" fill="url(#g1)"/>
+    <rect x="144" y="40" width="48" height="160" rx="6" fill="url(#g1)"/>
+    <rect x="216" y="100" width="48" height="100" rx="6" fill="url(#g2)"/>
+    <rect x="288" y="60" width="48" height="140" rx="6" fill="url(#g2)"/>
+    <rect x="360" y="20" width="48" height="180" rx="6" fill="url(#g2)"/>
+  </g>
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f472b6"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+</svg>
