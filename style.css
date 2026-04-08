@@ -421,7 +421,8 @@ h2 {
     padding: 0;
 }
 
-.identity-feature__image {
+.identity-feature__image,
+.identity-feature__video {
     display: block;
     width: 100%;
     height: 100%;
