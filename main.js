@@ -2,6 +2,19 @@
     const footerYear = document.getElementById("footer-year");
     if (footerYear) footerYear.textContent = String(new Date().getFullYear());
 
+    const identityVideo = document.querySelector(".identity-feature__video");
+    if (identityVideo) {
+        const setDoubleSpeed = function () {
+            identityVideo.playbackRate = 2;
+        };
+
+        setDoubleSpeed();
+        identityVideo.addEventListener("loadedmetadata", setDoubleSpeed);
+        identityVideo.play().catch(function () {
+            // Ignore autoplay rejections from restrictive browser policies.
+        });
+    }
+
     const form = document.getElementById("waitlist-form");
     const success = document.getElementById("form-success");
 
