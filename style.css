@@ -105,17 +105,20 @@ h2 {
     align-items: center;
     gap: 6px;
     text-decoration: none;
-    color: #374151;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    color: #6d28d9;
+    font-size: 0.86rem;
+    font-weight: 700;
+    border: 1px solid #ddd6fe;
+    border-radius: 999px;
+    padding: 7px 10px;
+    background: #faf5ff;
+    transition: all 0.2s ease;
 }
 
 .navbar__demo:hover {
-    color: #1f2937;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
+    color: #5b21b6;
+    border-color: #c4b5fd;
+    background: #f5f3ff;
 }
 
 .wizard-logo {
