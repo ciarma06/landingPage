@@ -22,6 +22,7 @@ body {
     background: var(--bg);
     color: var(--text);
     line-height: 1.5;
+    scroll-behavior: smooth;
 }
 
 .shell__inner {
@@ -93,6 +94,27 @@ h2 {
 
 .navbar__link:hover {
     color: var(--purple);
+}
+
+.navbar__demo {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: #6d28d9;
+    font-size: 0.86rem;
+    font-weight: 700;
+    border: 1px solid #ddd6fe;
+    border-radius: 999px;
+    padding: 7px 10px;
+    background: #faf5ff;
+    transition: all 0.2s ease;
+}
+
+.navbar__demo:hover {
+    color: #5b21b6;
+    border-color: #c4b5fd;
+    background: #f5f3ff;
 }
 
 .wizard-logo {
@@ -456,13 +478,14 @@ h2 {
 }
 
 .video-placeholder__box {
-    border: 1px dashed #c4b5fd;
+    border: 1px solid #ddd6fe;
     border-radius: var(--radius);
     min-height: 320px;
     display: flex;
     align-items: stretch;
-    background: #faf5ff;
+    background: #ffffff;
     padding: 8px;
+    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.08);
 }
 
 .video-placeholder__video {
