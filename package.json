@@ -1,0 +1,24 @@
+{
+  "name": "landingpage",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ciarma06/landingPage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ciarma06/landingPage/issues"
+  },
+  "homepage": "https://github.com/ciarma06/landingPage#readme",
+  "description": "",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.102.1",
+    "resend": "^6.10.0"
+  }
+}

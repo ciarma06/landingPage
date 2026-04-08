@@ -33,14 +33,6 @@
         });
     }
 
-    const supabaseUrl = window.SUPABASE_URL;
-    const supabaseAnonKey = window.SUPABASE_ANON_KEY;
-
-    let supabaseClient = null;
-    if (window.supabase && supabaseUrl && supabaseAnonKey && !supabaseUrl.includes("YOUR_SUPABASE_URL")) {
-        supabaseClient = window.supabase.createClient(supabaseUrl, supabaseAnonKey);
-    }
-
     const statusMessage = document.createElement("p");
     statusMessage.setAttribute("role", "status");
     statusMessage.setAttribute("aria-live", "polite");
@@ -57,25 +49,35 @@
             return;
         }
 
-        if (!supabaseClient) {
-            statusMessage.textContent = "Supabase non configurato. Imposta URL e ANON KEY in index.html.";
-            return;
-        }
-
         const submitButton = form.querySelector('button[type="submit"]');
         if (submitButton) submitButton.disabled = true;
 
         const email = emailInput.value.trim().toLowerCase();
         const source = new URLSearchParams(window.location.search).get("utm_source") ?? "direct";
 
-        const { error } = await supabaseClient
-            .from("utenti_waitlist")
-            .insert([{ email, source }]);
+        let response;
+        try {
+            response = await fetch("/api/waitlist", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email, source })
+            });
+        } catch {
+            if (submitButton) submitButton.disabled = false;
+            statusMessage.textContent = "Errore di rete. Riprova tra poco.";
+            return;
+        }
 
         if (submitButton) submitButton.disabled = false;
 
-        if (error) {
-            if (error.code === "23505") {
+        if (!response.ok) {
+            const result = await response.json().catch(function () {
+                return {};
+            });
+
+            if (result?.code === "23505") {
                 statusMessage.textContent = "Sei gia in lista - ti avviseremo al lancio!";
             } else {
                 statusMessage.textContent = "Errore nel salvataggio della mail. Riprova tra poco.";
