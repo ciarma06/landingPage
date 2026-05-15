@@ -925,33 +925,39 @@ html.dark .navbar__theme-toggle .icon-moon {
     margin-bottom: 8px;
 }
 
-.ai-instructions-section p {
-    color: var(--muted);
-    max-width: 680px;
-    margin-bottom: 16px;
+.ai-instructions-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.9fr);
+    gap: 24px;
+    align-items: start;
 }
 
-.ai-instructions-section__media {
+.ai-instructions-feature__card {
+    min-height: 180px;
+}
+
+.ai-instructions-feature__media {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     overflow: hidden;
     background: #fafafa;
-    max-width: 720px;
 }
 
-.ai-instructions-section__img {
+.ai-instructions-feature__img {
     display: block;
     width: 100%;
     height: auto;
 }
 
-html.dark .ai-instructions-section__media {
+html.dark .ai-instructions-feature__media {
     background: #1e293b;
     border-color: var(--border);
 }
 
-html.dark .ai-instructions-section p {
-    color: var(--muted);
+@media (max-width: 640px) {
+    .ai-instructions-feature {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ------------------------------------------------------------------ */
