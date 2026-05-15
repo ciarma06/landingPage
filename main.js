@@ -2,6 +2,47 @@
     const footerYear = document.getElementById("footer-year");
     if (footerYear) footerYear.textContent = String(new Date().getFullYear());
 
+    const THEME_STORAGE_KEY = "linky-theme";
+    const root = document.documentElement;
+
+    function readStoredTheme() {
+        try {
+            return localStorage.getItem(THEME_STORAGE_KEY);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function writeStoredTheme(value) {
+        try {
+            localStorage.setItem(THEME_STORAGE_KEY, value);
+        } catch (e) {
+            // Ignore storage errors (private mode, quota, etc.)
+        }
+    }
+
+    function applyTheme(theme) {
+        if (theme === "dark") {
+            root.classList.add("dark");
+        } else {
+            root.classList.remove("dark");
+        }
+    }
+
+    const storedTheme = readStoredTheme();
+    if (storedTheme === "dark" || storedTheme === "light") {
+        applyTheme(storedTheme);
+    }
+
+    const themeToggle = document.getElementById("theme-toggle");
+    if (themeToggle) {
+        themeToggle.addEventListener("click", function () {
+            const nextTheme = root.classList.contains("dark") ? "light" : "dark";
+            applyTheme(nextTheme);
+            writeStoredTheme(nextTheme);
+        });
+    }
+
     const identityVideo = document.querySelector(".identity-feature__video");
     if (identityVideo) {
         const setDoubleSpeed = function () {
