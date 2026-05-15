@@ -916,6 +916,44 @@ html.dark .navbar__theme-toggle .icon-moon {
     font-size: 0.95rem;
 }
 
+.ai-instructions-section {
+    margin-top: 40px;
+}
+
+.ai-instructions-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.ai-instructions-section p {
+    color: var(--muted);
+    max-width: 680px;
+    margin-bottom: 16px;
+}
+
+.ai-instructions-section__media {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: #fafafa;
+    max-width: 720px;
+}
+
+.ai-instructions-section__img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+html.dark .ai-instructions-section__media {
+    background: #1e293b;
+    border-color: var(--border);
+}
+
+html.dark .ai-instructions-section p {
+    color: var(--muted);
+}
+
 /* ------------------------------------------------------------------ */
 /* Dark mode overrides                                                 */
 /* ------------------------------------------------------------------ */
