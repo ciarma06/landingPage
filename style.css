@@ -308,6 +308,12 @@ h2 {
     gap: 16px;
 }
 
+.testimonials__ph {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+}
+
 .compare-box,
 .trust {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
