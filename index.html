@@ -194,7 +194,7 @@
                                 <li>✦ Save comments from LinkedIn feed</li>
                                 <li>✦ Custom AI instructions</li>
                             </ul>
-                            <a class="btn-primary btn-primary--gold pricing-card__cta js-focus-waitlist" href="#waitlist-form">Join the waitlist</a>
+                            <button type="button" class="btn-primary btn-primary--gold pricing-card__cta js-checkout" data-price-id="price_1TYY44AqaCXpBWedkYaGHxol">Get Linky Assistant</button>
                         </article>
 
                         <article class="pricing-card pricing-card--featured">
@@ -211,7 +211,7 @@
                                 <li>✦ 500 AI-generated messages / mo</li>
                                 <li>✦ Priority support</li>
                             </ul>
-                            <a class="btn-primary btn-primary--gold pricing-card__cta js-focus-waitlist" href="#waitlist-form">Join the waitlist</a>
+                            <button type="button" class="btn-primary btn-primary--gold pricing-card__cta js-checkout" data-price-id="price_1TYYFZAqaCXpBWedhRRHMiTd">Get Ultimate Bundle</button>
                         </article>
 
                         <article class="pricing-card">
@@ -227,7 +227,7 @@
                                 <li>✦ Profile enrichment (bio, posts, role)</li>
                                 <li>✦ Lead export to CRM</li>
                             </ul>
-                            <a class="btn-primary btn-primary--gold pricing-card__cta js-focus-waitlist" href="#waitlist-form">Join the waitlist</a>
+                            <button type="button" class="btn-primary btn-primary--gold pricing-card__cta js-checkout" data-price-id="price_1TYY9FAqaCXpBWedvqKQQiYt">Get Linky Scout</button>
                         </article>
                     </div>
 
@@ -244,16 +244,19 @@
                                 <p class="pricing__topup-name">Trial</p>
                                 <p class="pricing__topup-credits">100 credits</p>
                                 <p class="pricing__topup-price">$4.99</p>
+                                <button type="button" class="btn-primary btn-primary--gold pricing__topup-cta js-checkout-pack" data-price-id="price_1TYYa7AqaCXpBWed0KrcuLX7" data-pack-credits="100">Buy Trial</button>
                             </div>
                             <div class="pricing__topup-card pricing__topup-card--mid">
                                 <p class="pricing__topup-name">Growth</p>
                                 <p class="pricing__topup-credits">500 credits</p>
                                 <p class="pricing__topup-price">$16.99</p>
+                                <button type="button" class="btn-primary btn-primary--gold pricing__topup-cta js-checkout-pack" data-price-id="price_1TYYe5AqaCXpBWedvIgOpNMS" data-pack-credits="500">Buy Growth</button>
                             </div>
                             <div class="pricing__topup-card pricing__topup-card--best">
                                 <p class="pricing__topup-name">Scale</p>
                                 <p class="pricing__topup-credits">1,000 credits</p>
                                 <p class="pricing__topup-price">$29.99</p>
+                                <button type="button" class="btn-primary btn-primary--gold pricing__topup-cta js-checkout-pack" data-price-id="price_1TYYfNAqaCXpBWedb5120RQs" data-pack-credits="1000">Buy Scale</button>
                             </div>
                         </div>
                     </div>
@@ -445,6 +448,13 @@
             </div>
         </div>
     </main>
+    <div id="checkout-popup" class="checkout-popup" hidden>
+      <div class="checkout-popup__content">
+        <button class="checkout-popup__close" aria-label="Close">×</button>
+        <h3>Check your email!</h3>
+        <p>We sent you a link to access your account. The page will stay open while you check.</p>
+      </div>
+    </div>
     <script src="main.js" defer></script>
 </body>
 </html>

@@ -56,6 +56,63 @@
         });
     }
 
+    const checkoutPopup = document.getElementById("checkout-popup");
+    function openCheckoutPopup() {
+        if (!checkoutPopup) return;
+        checkoutPopup.hidden = false;
+        document.body.classList.add("no-scroll");
+    }
+    function closeCheckoutPopup() {
+        if (!checkoutPopup) return;
+        checkoutPopup.hidden = true;
+        document.body.classList.remove("no-scroll");
+    }
+    if (checkoutPopup) {
+        const closeBtn = checkoutPopup.querySelector(".checkout-popup__close");
+        if (closeBtn) closeBtn.addEventListener("click", closeCheckoutPopup);
+        checkoutPopup.addEventListener("click", function (e) {
+            if (e.target === checkoutPopup) closeCheckoutPopup();
+        });
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && !checkoutPopup.hidden) closeCheckoutPopup();
+        });
+    }
+    window.openCheckoutPopup = openCheckoutPopup;
+    window.closeCheckoutPopup = closeCheckoutPopup;
+
+    document.querySelectorAll(".js-checkout").forEach(function (btn) {
+        if (!btn.dataset.originalText) btn.dataset.originalText = btn.textContent;
+        btn.addEventListener("click", async function (e) {
+            e.preventDefault();
+            btn.disabled = true;
+            btn.textContent = "Loading...";
+            try {
+                const res = await fetch("/api/create-checkout", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ priceId: btn.dataset.priceId })
+                });
+                const data = await res.json().catch(function () { return {}; });
+                if (!res.ok || data.error) throw new Error(data.error || "Checkout failed");
+                if (!data.url) throw new Error("Missing checkout URL");
+                window.location.href = data.url;
+            } catch (err) {
+                console.error("checkout error:", err);
+                alert("Error: " + err.message);
+                btn.disabled = false;
+                btn.textContent = btn.dataset.originalText || "Get plan";
+            }
+        });
+    });
+
+    document.querySelectorAll(".js-checkout-pack").forEach(function (btn) {
+        if (!btn.dataset.originalText) btn.dataset.originalText = btn.textContent;
+        btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            alert("Login on Scout to buy packs");
+        });
+    });
+
     const form = document.getElementById("waitlist-form");
     const success = document.getElementById("form-success");
 

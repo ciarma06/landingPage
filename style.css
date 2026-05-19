@@ -1451,3 +1451,224 @@ html.dark .legal-content address {
 html.dark .legal-content h3 {
     color: var(--text);
 }
+
+/* ── Pack CTAs ── */
+.pricing__topup-cta {
+    margin-top: 12px;
+    width: 100%;
+    font-size: 0.88rem;
+    padding: 10px 12px;
+}
+
+/* ── Secondary button (success page) ── */
+.btn-secondary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--text);
+    background: #fff;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    border-color: var(--purple);
+    color: var(--purple);
+}
+
+html.dark .btn-secondary {
+    background: #1e293b;
+    color: var(--text);
+    border-color: var(--border);
+}
+
+html.dark .btn-secondary:hover {
+    border-color: var(--purple);
+    color: var(--purple);
+}
+
+/* ── Success page ── */
+.success-page {
+    display: grid;
+    place-items: center;
+    margin-top: 64px;
+}
+
+.success-card {
+    width: 100%;
+    max-width: 560px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 10px 32px rgba(17, 24, 39, 0.06);
+}
+
+.success-card__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 999px;
+    background: #dcfce7;
+    color: #166534;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 20px;
+}
+
+.success-card__title {
+    font-size: clamp(1.6rem, 3.4vw, 2.1rem);
+    margin: 0 0 10px;
+}
+
+.success-card__lead {
+    color: var(--muted);
+    margin: 0 0 18px;
+    font-size: 1rem;
+}
+
+.success-card__sub {
+    color: var(--text);
+    margin: 0 0 24px;
+    font-size: 0.95rem;
+}
+
+.success-card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.success-card__hint {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.success-card__hint a {
+    color: var(--purple);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.success-card__hint a:hover {
+    text-decoration: underline;
+}
+
+html.dark .success-card {
+    background: #1e293b;
+    border-color: var(--border);
+}
+
+html.dark .success-card__icon {
+    background: #064e3b;
+    color: #6ee7b7;
+}
+
+html.dark .success-card__lead,
+html.dark .success-card__hint {
+    color: var(--muted);
+}
+
+/* ── Checkout popup ── */
+body.no-scroll {
+    overflow: hidden;
+}
+
+.checkout-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+    animation: checkoutPopupFade 0.2s ease-out;
+}
+
+.checkout-popup[hidden] {
+    display: none;
+}
+
+.checkout-popup__content {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 28px 24px;
+    box-shadow: 0 20px 48px rgba(17, 24, 39, 0.25);
+    text-align: center;
+    animation: checkoutPopupRise 0.22s ease-out;
+}
+
+.checkout-popup__content h3 {
+    margin: 0 0 10px;
+    font-size: 1.25rem;
+    color: var(--text);
+}
+
+.checkout-popup__content p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.checkout-popup__close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.checkout-popup__close:hover {
+    background: #f3f4f6;
+    color: var(--text);
+}
+
+@keyframes checkoutPopupFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes checkoutPopupRise {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+html.dark .checkout-popup {
+    background: rgba(0, 0, 0, 0.65);
+}
+
+html.dark .checkout-popup__content {
+    background: #1e293b;
+    border-color: var(--border);
+}
+
+html.dark .checkout-popup__content h3 {
+    color: var(--text);
+}
+
+html.dark .checkout-popup__close:hover {
+    background: #334155;
+    color: var(--text);
+}

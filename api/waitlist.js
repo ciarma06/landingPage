@@ -1,5 +1,5 @@
-const { createClient } = require("@supabase/supabase-js");
-const { Resend } = require("resend");
+import { createClient } from "@supabase/supabase-js";
+import { Resend } from "resend";
 
 const WELCOME_SUBJECT = "You’re in! 🚀 (And your LinkedIn game is about to change)";
 const WELCOME_TEXT = `Hey there,
@@ -26,7 +26,7 @@ The Founder
 LinkyAssistant
 www.linkyassistant.com`;
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
     }
@@ -73,4 +73,4 @@ module.exports = async function handler(req, res) {
     }
 
     return res.status(200).json({ ok: true });
-};
+}
