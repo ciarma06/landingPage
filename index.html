@@ -180,10 +180,20 @@
                     <p class="pricing__subtitle">Start with what you need. Upgrade when you grow.</p>
 
                     <div class="pricing__grid">
-                        <article class="pricing-card">
+                        <article class="pricing-card" data-plan="assistant">
                             <div class="pricing-card__header">
                                 <p class="pricing-card__label">Linky Assistant</p>
-                                <p class="pricing-card__price"><span class="pricing-card__amount">$9.99</span><span class="pricing-card__period">/mo</span></p>
+                                <p class="pricing-card__promo-badge js-promo-ui">50% OFF LIFETIME · UNTIL JULY 2</p>
+                                <p class="pricing-card__price">
+                                    <span class="pricing-card__price-promo js-promo-ui">
+                                        <span class="pricing-card__price-was"><s>$9.99</s><span class="pricing-card__period">/mo</span></span>
+                                        <span class="pricing-card__amount pricing-card__amount--promo">$4.99</span><span class="pricing-card__period">/mo</span>
+                                    </span>
+                                    <span class="pricing-card__price-full js-full-price-ui" hidden>
+                                        <span class="pricing-card__amount">$9.99</span><span class="pricing-card__period">/mo</span>
+                                    </span>
+                                </p>
+                                <p class="pricing-card__promo-copy js-promo-ui">Lock in $4.99/month forever. Price returns to $9.99 after July 2.</p>
                                 <p class="pricing-card__tagline">For founders who want smarter outreach.</p>
                             </div>
                             <ul class="pricing-card__features">
@@ -197,11 +207,21 @@
                             <button type="button" class="btn-primary btn-primary--gold pricing-card__cta js-checkout" data-price-id="price_1TYY44AqaCXpBWedkYaGHxol">Get Linky Assistant</button>
                         </article>
 
-                        <article class="pricing-card pricing-card--featured">
+                        <article class="pricing-card pricing-card--featured" data-plan="bundle">
                             <div class="pricing-card__badge">Best Value</div>
                             <div class="pricing-card__header">
                                 <p class="pricing-card__label">Ultimate Bundle</p>
-                                <p class="pricing-card__price"><span class="pricing-card__amount">$20.99</span><span class="pricing-card__period">/mo</span></p>
+                                <p class="pricing-card__promo-badge js-promo-ui">20% OFF FIRST MONTH</p>
+                                <p class="pricing-card__price">
+                                    <span class="pricing-card__price-promo js-promo-ui">
+                                        <span class="pricing-card__price-was"><s>$20.99</s><span class="pricing-card__period">/mo</span></span>
+                                        <span class="pricing-card__amount pricing-card__amount--promo">$16.79</span><span class="pricing-card__period">/mo</span>
+                                    </span>
+                                    <span class="pricing-card__price-full js-full-price-ui" hidden>
+                                        <span class="pricing-card__amount">$20.99</span><span class="pricing-card__period">/mo</span>
+                                    </span>
+                                </p>
+                                <p class="pricing-card__promo-copy js-promo-ui">Get your code on Product Hunt → <a class="pricing-card__promo-link" href="https://www.producthunt.com/products/linky-find-leads-start-conversations" target="_blank" rel="noopener noreferrer">View launch post</a></p>
                                 <p class="pricing-card__tagline">Find leads AND convert them — all in one.</p>
                             </div>
                             <ul class="pricing-card__features">
@@ -214,10 +234,20 @@
                             <button type="button" class="btn-primary btn-primary--gold pricing-card__cta js-checkout" data-price-id="price_1TYYFZAqaCXpBWedhRRHMiTd">Get Ultimate Bundle</button>
                         </article>
 
-                        <article class="pricing-card">
+                        <article class="pricing-card" data-plan="scout">
                             <div class="pricing-card__header">
                                 <p class="pricing-card__label">Linky Scout</p>
-                                <p class="pricing-card__price"><span class="pricing-card__amount">$17.99</span><span class="pricing-card__period">/mo</span></p>
+                                <p class="pricing-card__promo-badge js-promo-ui">20% OFF FIRST MONTH</p>
+                                <p class="pricing-card__price">
+                                    <span class="pricing-card__price-promo js-promo-ui">
+                                        <span class="pricing-card__price-was"><s>$17.99</s><span class="pricing-card__period">/mo</span></span>
+                                        <span class="pricing-card__amount pricing-card__amount--promo">$14.39</span><span class="pricing-card__period">/mo</span>
+                                    </span>
+                                    <span class="pricing-card__price-full js-full-price-ui" hidden>
+                                        <span class="pricing-card__amount">$17.99</span><span class="pricing-card__period">/mo</span>
+                                    </span>
+                                </p>
+                                <p class="pricing-card__promo-copy js-promo-ui">Get your code on Product Hunt → <a class="pricing-card__promo-link" href="https://www.producthunt.com/products/linky-find-leads-start-conversations" target="_blank" rel="noopener noreferrer">View launch post</a></p>
                                 <p class="pricing-card__tagline">For teams that need qualified leads at scale.</p>
                             </div>
                             <ul class="pricing-card__features">

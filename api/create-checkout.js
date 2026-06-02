@@ -37,6 +37,12 @@ const PRICE_CATALOG = {
 const SUCCESS_URL = "https://linkyassistant.com/success.html?session_id={CHECKOUT_SESSION_ID}";
 const CANCEL_URL = "https://linkyassistant.com/#pricing";
 
+function isPromoActive() {
+    const deadline = process.env.PROMO_DEADLINE_ISO;
+    if (!deadline) return false;
+    return new Date() < new Date(deadline);
+}
+
 function setCors(res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -126,9 +132,25 @@ export default async function handler(req, res) {
             line_items: [{ price: priceId, quantity: 1 }],
             success_url: SUCCESS_URL,
             cancel_url: CANCEL_URL,
-            metadata,
-            allow_promotion_codes: true
+            metadata
         };
+
+        if (
+            priceInfo.type === "subscription"
+            && priceInfo.plan === "assistant"
+            && isPromoActive()
+        ) {
+            const couponId = process.env.STRIPE_ASSISTANT_PROMO_COUPON_ID;
+            if (couponId) {
+                console.log("[checkout] applying assistant promo coupon");
+                sessionParams.discounts = [{ coupon: couponId }];
+            }
+        } else if (
+            priceInfo.type === "subscription"
+            && (priceInfo.plan === "scout" || priceInfo.plan === "bundle")
+        ) {
+            sessionParams.allow_promotion_codes = true;
+        }
 
         if (normalizedEmail) {
             sessionParams.customer_email = normalizedEmail;

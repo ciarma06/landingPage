@@ -612,8 +612,62 @@ h2 {
     margin: 0 0 8px;
 }
 
+.pricing-card__promo-badge {
+    display: inline-block;
+    margin: 0 0 10px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #fef3c7;
+    color: #92400e;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
 .pricing-card__price {
     margin: 0 0 4px;
+}
+
+.pricing-card__price-promo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.pricing-card__price-was {
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+.pricing-card__price-was s {
+    text-decoration: line-through;
+    opacity: 0.75;
+}
+
+.pricing-card__amount--promo {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.pricing-card__promo-copy {
+    margin: 8px 0 0;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--muted);
+}
+
+.pricing-card__promo-link {
+    color: var(--purple);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.pricing-card__promo-link:hover {
+    color: #6d28d9;
 }
 
 .pricing-card__amount {
@@ -1355,6 +1409,19 @@ html.dark .pricing-card {
 html.dark .pricing-card--featured {
     background: #1e1b4b;
     border-color: #4c1d95;
+}
+
+html.dark .pricing-card__promo-badge {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fcd34d;
+}
+
+html.dark .pricing-card__promo-link {
+    color: #c4b5fd;
+}
+
+html.dark .pricing-card__promo-link:hover {
+    color: #ddd6fe;
 }
 
 html.dark .pricing__credits-explainer {

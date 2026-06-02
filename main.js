@@ -1,4 +1,14 @@
 (function () {
+    const PROMO_END = new Date("2026-07-02T23:59:59Z");
+    const promoActive = new Date() < PROMO_END;
+
+    document.querySelectorAll(".js-promo-ui").forEach(function (el) {
+        el.hidden = !promoActive;
+    });
+    document.querySelectorAll(".js-full-price-ui").forEach(function (el) {
+        el.hidden = promoActive;
+    });
+
     const footerYear = document.getElementById("footer-year");
     if (footerYear) footerYear.textContent = String(new Date().getFullYear());
 
