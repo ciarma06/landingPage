@@ -72,5 +72,29 @@
         var y = document.getElementById("footer-year");
         if (y) y.textContent = String(new Date().getFullYear());
     </script>
+    <script>
+        (function () {
+            const OWNED_PLANS_KEY = "linky_owned_plans";
+            const PENDING_PLAN_KEY = "linky_pending_plan";
+            const SUBSCRIPTION_PLANS = ["assistant", "scout", "bundle"];
+
+            try {
+                const pending = sessionStorage.getItem(PENDING_PLAN_KEY);
+                if (!pending || !SUBSCRIPTION_PLANS.includes(pending)) return;
+
+                const raw = localStorage.getItem(OWNED_PLANS_KEY);
+                const owned = raw ? JSON.parse(raw) : [];
+
+                if (!owned.includes(pending)) {
+                    owned.push(pending);
+                    localStorage.setItem(OWNED_PLANS_KEY, JSON.stringify(owned));
+                }
+
+                sessionStorage.removeItem(PENDING_PLAN_KEY);
+            } catch (err) {
+                console.error("Could not persist owned plan", err);
+            }
+        })();
+    </script>
 </body>
 </html>

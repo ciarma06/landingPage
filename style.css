@@ -706,6 +706,21 @@ h2 {
     text-align: center;
 }
 
+.pricing-card__cta.is-owned,
+.btn-primary--gold.pricing-card__cta.is-owned {
+    background: var(--muted, #e5e7eb);
+    color: #6b7280;
+    cursor: not-allowed;
+    opacity: 0.75;
+    box-shadow: none;
+}
+
+.pricing-card__cta.is-owned:hover,
+.btn-primary--gold.pricing-card__cta.is-owned:hover {
+    background: var(--muted, #e5e7eb);
+    transform: none;
+}
+
 /* Credits explainer */
 .pricing__credits-explainer {
     margin: 0 auto 36px;
@@ -1496,6 +1511,17 @@ html.dark .btn-primary--gold {
 
 html.dark .btn-primary--gold:hover {
     background: #c4b5fd;
+}
+
+html.dark .pricing-card__cta.is-owned,
+html.dark .btn-primary--gold.pricing-card__cta.is-owned {
+    background: #334155;
+    color: #94a3b8;
+}
+
+html.dark .pricing-card__cta.is-owned:hover,
+html.dark .btn-primary--gold.pricing-card__cta.is-owned:hover {
+    background: #334155;
 }
 
 html.dark .form-success__title {

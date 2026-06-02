@@ -1,4 +1,39 @@
 (function () {
+    const OWNED_PLANS_KEY = "linky_owned_plans";
+    const PENDING_PLAN_KEY = "linky_pending_plan";
+
+    function getOwnedPlans() {
+        try {
+            const raw = localStorage.getItem(OWNED_PLANS_KEY);
+            return raw ? JSON.parse(raw) : [];
+        } catch {
+            return [];
+        }
+    }
+
+    function markButtonOwned(btn) {
+        btn.disabled = true;
+        btn.classList.add("is-owned");
+        btn.classList.remove("is-loading");
+        btn.textContent = "Already purchased";
+    }
+
+    function resetAllLoadingButtons() {
+        document.querySelectorAll("[data-price-id]").forEach(function (btn) {
+            if (btn.classList.contains("is-owned")) return;
+            if (btn.dataset.originalText) {
+                btn.textContent = btn.dataset.originalText;
+                btn.disabled = false;
+                btn.classList.remove("is-loading");
+            }
+        });
+        try {
+            sessionStorage.removeItem(PENDING_PLAN_KEY);
+        } catch {
+            // Ignore storage errors
+        }
+    }
+
     const PROMO_END = new Date("2026-07-02T23:59:59Z");
     const promoActive = new Date() < PROMO_END;
 
@@ -7,6 +42,21 @@
     });
     document.querySelectorAll(".js-full-price-ui").forEach(function (el) {
         el.hidden = promoActive;
+    });
+
+    const owned = getOwnedPlans();
+    document.querySelectorAll("[data-price-id][data-plan]").forEach(function (btn) {
+        if (owned.includes(btn.dataset.plan)) {
+            markButtonOwned(btn);
+        }
+    });
+
+    window.addEventListener("pageshow", function (e) {
+        if (e.persisted) resetAllLoadingButtons();
+    });
+
+    document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "visible") resetAllLoadingButtons();
     });
 
     const footerYear = document.getElementById("footer-year");
@@ -94,8 +144,24 @@
         if (!btn.dataset.originalText) btn.dataset.originalText = btn.textContent;
         btn.addEventListener("click", async function (e) {
             e.preventDefault();
-            btn.disabled = true;
+            if (btn.classList.contains("is-owned")) return;
+
+            const plan = btn.dataset.plan;
+            if (plan) {
+                try {
+                    sessionStorage.setItem(PENDING_PLAN_KEY, plan);
+                } catch {
+                    // Ignore storage errors
+                }
+            }
+
+            if (!btn.dataset.originalText) {
+                btn.dataset.originalText = btn.textContent;
+            }
+            btn.classList.add("is-loading");
             btn.textContent = "Loading...";
+            btn.disabled = true;
+
             try {
                 const res = await fetch("/api/create-checkout", {
                     method: "POST",
@@ -109,8 +175,14 @@
             } catch (err) {
                 console.error("checkout error:", err);
                 alert("Error: " + err.message);
-                btn.disabled = false;
+                try {
+                    sessionStorage.removeItem(PENDING_PLAN_KEY);
+                } catch {
+                    // Ignore storage errors
+                }
                 btn.textContent = btn.dataset.originalText || "Get plan";
+                btn.disabled = false;
+                btn.classList.remove("is-loading");
             }
         });
     });
