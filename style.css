@@ -571,6 +571,120 @@ h2 {
     font-size: 0.92rem;
 }
 
+/* ── Get the apps ── */
+.apps {
+    margin-top: 56px;
+}
+
+.apps__container {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 40px 28px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #fcfcff;
+}
+
+.apps__header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.apps__header h2 {
+    margin-bottom: 12px;
+}
+
+.apps__subhead {
+    margin: 0 auto;
+    max-width: 640px;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.apps__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.app-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.app-card__badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--purple-soft);
+    color: var(--purple);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 999px;
+}
+
+.app-card__title {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.app-card__desc {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.app-card__features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.app-card__features li {
+    position: relative;
+    padding-left: 1.35rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.app-card__features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--purple);
+    font-weight: 700;
+}
+
+.app-card__cta {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .apps__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .apps__container {
+        padding: 28px 20px;
+    }
+}
+
 /* ── Pricing ── */
 .pricing {
     margin-top: 56px;
@@ -1332,6 +1446,30 @@ html.dark .trial-form__input::placeholder {
 html.dark .trial-form__input:focus {
     outline-color: #7c3aed;
     border-color: var(--purple);
+}
+
+html.dark .apps__container {
+    background: #1e293b;
+    border-color: var(--border);
+}
+
+html.dark .apps__subhead,
+html.dark .app-card__desc {
+    color: var(--muted);
+}
+
+html.dark .app-card {
+    background: #0f172a;
+    border-color: var(--border);
+}
+
+html.dark .app-card__badge {
+    background: #1e1b4b;
+    color: #c4b5fd;
+}
+
+html.dark .app-card__features li::before {
+    color: #c4b5fd;
 }
 
 html.dark .card,
