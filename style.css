@@ -165,18 +165,24 @@ h2 {
     margin-bottom: 22px;
 }
 
-.waitlist-form__row {
+.hero__trial-note {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 14px;
+}
+
+.trial-form__row {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     max-width: 500px;
 }
 
-.waitlist-form {
+.trial-form {
     max-width: 500px;
 }
 
-.waitlist-input {
+.trial-form__input {
     flex: 1 1 220px;
     padding: 12px 14px;
     border: 1px solid var(--border);
@@ -184,9 +190,33 @@ h2 {
     font: inherit;
 }
 
-.waitlist-input:focus {
+.trial-form__input:focus {
     outline: 2px solid #c4b5fd;
     border-color: var(--purple);
+}
+
+.trial-form__legal,
+.trial-form__signin {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 10px;
+    max-width: 500px;
+}
+
+.trial-form__legal a,
+.trial-form__signin a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.trial-form__signin a {
+    font-weight: 600;
+}
+
+.trial-form__error {
+    margin-top: 12px;
+    color: #f87171;
+    font-size: 0.9rem;
 }
 
 .btn-primary {
@@ -210,16 +240,6 @@ h2 {
 
 .btn-primary--gold:hover {
     background: #7c3aed;
-}
-
-.form-success {
-    margin-top: 10px;
-}
-
-.form-success__title {
-    color: #047857;
-    margin-bottom: 4px;
-    font-weight: 700;
 }
 
 .bar-proof {
@@ -1299,17 +1319,17 @@ html.dark .hero__subhead {
     color: var(--muted);
 }
 
-html.dark .waitlist-input {
+html.dark .trial-form__input {
     background: #1e293b;
     border-color: var(--border);
     color: var(--text);
 }
 
-html.dark .waitlist-input::placeholder {
+html.dark .trial-form__input::placeholder {
     color: var(--muted);
 }
 
-html.dark .waitlist-input:focus {
+html.dark .trial-form__input:focus {
     outline-color: #7c3aed;
     border-color: var(--purple);
 }
@@ -1522,10 +1542,6 @@ html.dark .btn-primary--gold.pricing-card__cta.is-owned {
 html.dark .pricing-card__cta.is-owned:hover,
 html.dark .btn-primary--gold.pricing-card__cta.is-owned:hover {
     background: #334155;
-}
-
-html.dark .form-success__title {
-    color: #6ee7b7;
 }
 
 html.dark .legal-content {

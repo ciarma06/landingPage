@@ -51,12 +51,30 @@
         }
     });
 
+    function resetTrialSubmitButton() {
+        const trialForm = document.getElementById("trial-form");
+        if (!trialForm) return;
+        const submitButton = trialForm.querySelector('button[type="submit"]');
+        if (!submitButton) return;
+        if (submitButton.dataset.originalText) {
+            submitButton.textContent = submitButton.dataset.originalText;
+        }
+        submitButton.disabled = false;
+        submitButton.classList.remove("is-loading");
+    }
+
     window.addEventListener("pageshow", function (e) {
-        if (e.persisted) resetAllLoadingButtons();
+        if (e.persisted) {
+            resetAllLoadingButtons();
+            resetTrialSubmitButton();
+        }
     });
 
     document.addEventListener("visibilitychange", function () {
-        if (document.visibilityState === "visible") resetAllLoadingButtons();
+        if (document.visibilityState === "visible") {
+            resetAllLoadingButtons();
+            resetTrialSubmitButton();
+        }
     });
 
     const footerYear = document.getElementById("footer-year");
@@ -195,77 +213,84 @@
         });
     });
 
-    const form = document.getElementById("waitlist-form");
-    const success = document.getElementById("form-success");
+    const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const trialForm = document.getElementById("trial-form");
+    const trialError = document.getElementById("trial-form-error");
 
-    if (!form || !success) return;
-    const emailInput = form.querySelector("#email");
+    if (trialForm) {
+        const emailInput = trialForm.querySelector("#email");
+        const submitButton = trialForm.querySelector('button[type="submit"]');
 
-    const waitlistLinks = document.querySelectorAll('.js-focus-waitlist[href="#waitlist-form"]');
-    if (waitlistLinks.length && emailInput) {
-        waitlistLinks.forEach(function (link) {
-            link.addEventListener("click", function (e) {
-                e.preventDefault();
-                form.scrollIntoView({ behavior: "smooth", block: "center" });
-                emailInput.focus();
-                emailInput.select();
-            });
-        });
-    }
-
-    const statusMessage = document.createElement("p");
-    statusMessage.setAttribute("role", "status");
-    statusMessage.setAttribute("aria-live", "polite");
-    statusMessage.style.marginTop = "12px";
-    statusMessage.style.color = "#f87171";
-    form.insertAdjacentElement("afterend", statusMessage);
-
-    form.addEventListener("submit", async function (e) {
-        e.preventDefault();
-        statusMessage.textContent = "";
-
-        if (!emailInput || !emailInput.checkValidity()) {
-            emailInput?.reportValidity();
-            return;
+        if (submitButton && !submitButton.dataset.originalText) {
+            submitButton.dataset.originalText = submitButton.textContent;
         }
 
-        const submitButton = form.querySelector('button[type="submit"]');
-        if (submitButton) submitButton.disabled = true;
-
-        const email = emailInput.value.trim().toLowerCase();
-        const source = new URLSearchParams(window.location.search).get("utm_source") ?? "direct";
-
-        let response;
-        try {
-            response = await fetch("/api/waitlist", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ email, source })
+        const trialLinks = document.querySelectorAll('.js-focus-trial[href="#trial-form"]');
+        if (trialLinks.length && emailInput) {
+            trialLinks.forEach(function (link) {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    trialForm.scrollIntoView({ behavior: "smooth", block: "center" });
+                    emailInput.focus();
+                    emailInput.select();
+                });
             });
-        } catch {
-            if (submitButton) submitButton.disabled = false;
-            statusMessage.textContent = "Errore di rete. Riprova tra poco.";
-            return;
         }
 
-        if (submitButton) submitButton.disabled = false;
+        function showTrialError(message) {
+            if (!trialError) return;
+            trialError.textContent = message;
+            trialError.hidden = !message;
+        }
 
-        if (!response.ok) {
-            const result = await response.json().catch(function () {
+        trialForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            showTrialError("");
+
+            const email = emailInput ? emailInput.value.trim().toLowerCase() : "";
+            if (!EMAIL_REGEX.test(email)) {
+                if (emailInput) emailInput.reportValidity();
+                return;
+            }
+
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.classList.add("is-loading");
+                submitButton.textContent = "Starting...";
+            }
+
+            let response;
+            try {
+                response = await fetch("/api/register", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email })
+                });
+            } catch {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.classList.remove("is-loading");
+                    submitButton.textContent = submitButton.dataset.originalText || "Start free trial";
+                }
+                showTrialError("Something went wrong. Please try again.");
+                return;
+            }
+
+            const data = await response.json().catch(function () {
                 return {};
             });
 
-            if (result?.code === "23505") {
-                statusMessage.textContent = "Sei gia in lista - ti avviseremo al lancio!";
-            } else {
-                statusMessage.textContent = "Errore nel salvataggio della mail. Riprova tra poco.";
+            if (!response.ok || !data.ok || !data.redirect) {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.classList.remove("is-loading");
+                    submitButton.textContent = submitButton.dataset.originalText || "Start free trial";
+                }
+                showTrialError("Something went wrong. Please try again.");
+                return;
             }
-            return;
-        }
 
-        form.hidden = true;
-        success.hidden = false;
-    });
+            window.location.href = data.redirect;
+        });
+    }
 })();
