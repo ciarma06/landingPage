@@ -216,6 +216,8 @@
     const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const trialForm = document.getElementById("trial-form");
     const trialError = document.getElementById("trial-form-error");
+    const trialSuccess = document.getElementById("trial-success");
+    const trialNote = document.querySelector(".hero__trial-note");
 
     if (trialForm) {
         const emailInput = trialForm.querySelector("#email");
@@ -241,6 +243,13 @@
             if (!trialError) return;
             trialError.textContent = message;
             trialError.hidden = !message;
+        }
+
+        function showTrialSuccess() {
+            showTrialError("");
+            trialForm.hidden = true;
+            if (trialNote) trialNote.hidden = true;
+            if (trialSuccess) trialSuccess.hidden = false;
         }
 
         trialForm.addEventListener("submit", async function (e) {
@@ -280,7 +289,7 @@
                 return {};
             });
 
-            if (!response.ok || !data.ok || !data.redirect) {
+            if (!response.ok || !data.ok) {
                 if (submitButton) {
                     submitButton.disabled = false;
                     submitButton.classList.remove("is-loading");
@@ -290,7 +299,7 @@
                 return;
             }
 
-            window.location.href = data.redirect;
+            showTrialSuccess();
         });
     }
 })();
